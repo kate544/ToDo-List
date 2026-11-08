@@ -30,11 +30,14 @@ jobs:
           node-version: 20
           cache: "npm"
 
+      - name: Remove Windows lockfile
+        run: rm -f package-lock.json
+
       - name: Install dependencies
         run: npm install --no-package-lock
 
       - name: Build
-        run: npm run build
+        run: npm run builsd
 
       - name: Setup Pages
         uses: actions/configure-pages@v4
